@@ -174,7 +174,7 @@ def PlotAnalogue(lat, lon, data, significanceMask = None, saveFig = False, fileN
         plt.savefig(f"{fileName}.png", dpi = 250, bbox_inches = "tight")
     plt.close()
 #%% "histAllEnsembles", "GHGAllEnsembles", "AERAllEnsembles", "SOLAllEnsembles", "VOLAllEnsembles"
-runSpecification = "DouwehistAllEnsembles"
+runSpecification = "histAllEnsembles"
 experiment = "hist"
 bbox = [41, 59, -5, 23]
 startDay, endDay = 181, 270
@@ -205,16 +205,4 @@ if __name__ == "__main__":
     eventPath = f"/usr/people/huis/Stage/Data/Limburg_14Jul2021_ERA5_msl.nc"
     saveFolder = f"/net/pc200039/nobackup/users/huis/LESFMIP/HadGEM/{experiment}/{runSpecification}/{variableName}/"
     RetrieveData(eventPath, saveFolder, variableName, bbox, startDay, endDay, originalYearLength, nEnsembles = nEnsembles, isEvent = True)
-# #%%
-# kaas = "/usr/people/thompson/WP1/intern/Limburg_14Jul2021_ERA5_pr.nc"
-# bbox = [41, 59, -5, 23]
-# startDay, endDay = 181, 270
-# originalYearLength = 360
-# event = LoadData(kaas)
-# lat, lon, psl = SplitData(event, "lat", "lon", "tp")
-# latSlice, lonSlice, mslSlice = SliceData(bbox, lat, lon, psl, startDay, endDay, originalYearLength, True)
-# print(np.max(mslSlice))
-# print(mslSlice.shape)
-# print(mslSlice.shape)
-# PlotAnalogue(latSlice, lonSlice, mslSlice[0], saveFig = True, fileName = "PrBest", minLevel = 0, maxLevel  = 80, isBlues = True, precLabel=True)
-# %%
+
